@@ -12,11 +12,11 @@ A couple of value semantics implementations of a stack: one that uses an array f
   - [x] `var peek: T?`
   - [x] `func enqueue(_:T)`
   - [x] `func dequeue() -> T?`
-- [ ] `struct QueueStack: Queue`
+- [x] `struct QueueStack: Queue`
   - [x] `init()`
   - [x] `var isEmpty: Bool`
   - [x] `var count: Int`
   - [x] `var peek: T?`
   - [x] `func enqueue(_:T)`
-  - [ ] `func dequeue() -> T?`
+  - [x] `func dequeue() -> T?`
   

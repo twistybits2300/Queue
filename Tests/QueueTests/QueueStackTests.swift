@@ -41,7 +41,7 @@ final class QueueStackTests: XCTestCase {
     }
 
     /// Validates that `enqueue(element:)` correctly enqueues the given value into an empty queue.
-    func test_enqueue_empty_queue() throws {
+    func test_enqueue_empty() throws {
         let addedValue = 6
         var expectedArray = [Int]()
         expectedArray.append(addedValue)
@@ -55,7 +55,7 @@ final class QueueStackTests: XCTestCase {
     }
 
     /// Validates that `enqueue(element:)` correctly enqueues the given value into a non-empty queue.
-    func test_enqueue_into_queue_not_empty() throws {
+    func test_enqueue() throws {
         var expectedArray = fixture.numbers
         expectedArray.append(fixture.addedValue)
         let expectedCount = expectedArray.count
@@ -65,6 +65,40 @@ final class QueueStackTests: XCTestCase {
 
         XCTAssertTrue(sut.enqueue(fixture.addedValue))
         XCTAssertEqual(sut.rightStack, expectedArray)
+        XCTAssertEqual(sut.count, expectedCount)
+    }
+
+    /// Validates that `dequeue()` returns `nil` when the queue is empty.
+    func test_dequeue_empty() throws {
+        var sut = fixture.makeEmptySUT()
+        XCTAssertTrue(sut.isEmpty)
+        XCTAssertNil(sut.dequeue())
+        XCTAssertEqual(sut.count, 0)
+    }
+
+    /// Validates that after `dequeue()` from a queue with one element the queue is empty.
+    func test_dequeue_one_element() throws {
+        var sut = fixture.makeEmptySUT()
+        XCTAssertTrue(sut.isEmpty)
+
+        XCTAssertTrue(sut.enqueue(fixture.addedValue))
+        XCTAssertFalse(sut.isEmpty)
+
+        let dequeuedValue = try XCTUnwrap(sut.dequeue())
+        XCTAssertEqual(dequeuedValue, fixture.addedValue)
+        XCTAssertEqual(sut.count, 0)
+    }
+
+    /// Validates that `dequeue()` from a queue with multiple elements returns the expected value.
+    func test_dequeue() throws {
+        let expectedValue = fixture.numbers[0]
+        let expectedCount = fixture.numbers.count - 1
+
+        var sut = fixture.makeNumbersSUT()
+        XCTAssertFalse(sut.isEmpty)
+
+        let dequeuedValue = sut.dequeue()
+        XCTAssertEqual(dequeuedValue, expectedValue)
         XCTAssertEqual(sut.count, expectedCount)
     }
 }
@@ -78,13 +112,11 @@ private extension QueueFixture {
         file: StaticString = #filePath,
         line: UInt = #line) -> QueueStack<Int>
     {
-        var sut = QueueStack<Int>(array: numbers)
+        var sut = QueueStack<Int>()
 
-        /*
         for value in numbers {
             XCTAssertTrue(sut.enqueue(value), file: file, line: line)
         }
-        */
 
         return sut
     }

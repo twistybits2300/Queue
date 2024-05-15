@@ -43,7 +43,19 @@ public struct QueueStack<T>: Queue {
         return true
     }
 
+    /// Removes the first item in the queue.
+    /// - Returns: The removed first element in the queue; may be `nil`.
     public mutating func dequeue() -> T? {
-        nil
+        if leftStack.isEmpty {
+            leftStack = rightStack.reversed()
+            rightStack.removeAll()
+        }
+
+        let value = leftStack.popLast()
+        if value != nil {
+            count -= 1
+        }
+
+        return value
     }
 }
