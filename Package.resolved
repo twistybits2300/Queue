@@ -1,0 +1,15 @@
+{
+  "originHash" : "6033c2c9775a4d04d9a5a55d01b562fc200e17dda00a6c5c36bf70aa1c901ffc",
+  "pins" : [
+    {
+      "identity" : "linkedlist",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/twistybits2300/LinkedList.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "4d998e4e13f175b42a95c55bff0bb6dbd281a0a4"
+      }
+    }
+  ],
+  "version" : 3
+}
