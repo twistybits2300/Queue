@@ -24,6 +24,21 @@ final class QueueStackTests: XCTestCase {
         let sut = fixture.makeNumbersSUT()
         XCTAssertFalse(sut.isEmpty)
     }
+
+    /// Validates that `peek` returns `nil` when the queue is empty.
+    func test_peek_empty() throws {
+        let sut = fixture.makeEmptySUT()
+        XCTAssertTrue(sut.isEmpty)
+        XCTAssertNil(sut.peek)
+    }
+
+    /// Validates that `peek` returns the expected value from a queue that is not empty.
+    func test_peek() throws {
+        let expectedValue = try XCTUnwrap(fixture.numbers.last)
+        let sut = fixture.makeNumbersSUT()
+        XCTAssertFalse(sut.isEmpty)
+        XCTAssertEqual(sut.peek, expectedValue)
+    }
 }
 
 private extension QueueFixture {

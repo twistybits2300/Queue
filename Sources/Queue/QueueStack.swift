@@ -28,8 +28,9 @@ public struct QueueStack<T>: Queue {
         leftStack.isEmpty && rightStack.isEmpty
     }
 
+    /// Returns the first element in the queue; may be `nil`.
     public var peek: T? {
-        nil
+        leftStack.isEmpty ? rightStack.last : leftStack.last
     }
 
     public mutating func enqueue(_ element: T) -> Bool {
