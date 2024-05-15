@@ -33,8 +33,14 @@ public struct QueueStack<T>: Queue {
         leftStack.isEmpty ? rightStack.last : leftStack.last
     }
 
+    /// Adds the given `element` to the end of the queue.
+    /// - Parameter element: The element to append.
+    /// - Returns: `true` if successful; always returns `true`.
+    @discardableResult
     public mutating func enqueue(_ element: T) -> Bool {
-        false
+        count += 1
+        rightStack.append(element)
+        return true
     }
 
     public mutating func dequeue() -> T? {

@@ -35,6 +35,7 @@ public struct QueueArray<T>: Queue {
     /// Adds the given `element` as the last item in the queue.
     /// - Parameter element: The element to be added.
     /// - Returns: always `true`, indicating success.
+    @discardableResult
     public mutating func enqueue(_ element: T) -> Bool {
         storage.append(element)
         return true

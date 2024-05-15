@@ -17,6 +17,6 @@ A couple of value semantics implementations of a stack: one that uses an array f
   - [x] `var isEmpty: Bool`
   - [x] `var count: Int`
   - [x] `var peek: T?`
-  - [ ] `func enqueue(_:T)`
+  - [x] `func enqueue(_:T)`
   - [ ] `func dequeue() -> T?`
   
