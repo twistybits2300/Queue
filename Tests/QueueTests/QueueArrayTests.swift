@@ -81,6 +81,36 @@ final class QueueArrayTests: XCTestCase {
         XCTAssertTrue(sut.enqueue(fixture.addedValue))
         XCTAssertEqual(sut.storage, expectedArray)
     }
+
+    /// Validates that `dequeue()` returns `nil` when the queue is empty.
+    func test_dequeue_empty() throws {
+        var sut = fixture.makeEmptySUT()
+        XCTAssertTrue(sut.isEmpty)
+        XCTAssertNil(sut.dequeue())
+    }
+
+    /// Validates that after `dequeue()` from a queue with one element the queue is empty.
+    func test_dequeue_one_element() throws {
+        var sut = fixture.makeEmptySUT()
+        XCTAssertTrue(sut.isEmpty)
+
+        XCTAssertTrue(sut.enqueue(fixture.addedValue))
+        XCTAssertFalse(sut.isEmpty)
+
+        let dequeuedValue = try XCTUnwrap(sut.dequeue())
+        XCTAssertEqual(dequeuedValue, fixture.addedValue)
+    }
+
+    /// Validates that `dequeue()` from a queue with multiple elements returns the expected value.
+    func test_dequeue() throws {
+        let expectedValue = fixture.numbers[0]
+
+        var sut = fixture.makeNumbersSUT()
+        XCTAssertFalse(sut.isEmpty)
+
+        let dequeuedValue = sut.dequeue()
+        XCTAssertEqual(dequeuedValue, expectedValue)
+    }
 }
 
 private extension QueueFixture {

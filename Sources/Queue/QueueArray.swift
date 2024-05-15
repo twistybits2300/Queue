@@ -39,4 +39,10 @@ public struct QueueArray<T>: Queue {
         storage.append(element)
         return true
     }
+
+    /// Removes the first item in the queue.
+    /// - Returns: The removed first element in the queue; may be `nil`.
+    public mutating func dequeue() -> T? {
+        isEmpty ? nil : storage.removeFirst()
+    }
 }

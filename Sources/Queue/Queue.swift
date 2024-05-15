@@ -18,9 +18,7 @@ public protocol Queue {
     /// - Returns: `true` if the enqueue was successful; `false` otherwise.
     mutating func enqueue(_ element: Element) -> Bool
 
-    /*
     /// Removes the first element from the queue.
     /// - Returns: The removed first element.
     mutating func dequeue() -> Element?
-    */
 }
