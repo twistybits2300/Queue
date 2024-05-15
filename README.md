@@ -4,7 +4,7 @@ A couple of value semantics implementations of a stack: one that uses an array f
 
 ### features
 - [x] `protocol Queue`
-- [ ] `struct QueueArray: Queue`
+- [x] `struct QueueArray: Queue`
   - [x] `init()`
   - [x] `init(array: [T])`
   - [x] `var isEmpty: Bool`
@@ -13,7 +13,7 @@ A couple of value semantics implementations of a stack: one that uses an array f
   - [x] `func enqueue(_:T)`
   - [x] `func dequeue() -> T?`
 - [ ] `struct QueueStack: Queue`
-  - [ ] `init()`
+  - [x] `init()`
   - [ ] `var isEmpty: Bool`
   - [ ] `var count: Int`
   - [ ] `var peek: T?`
