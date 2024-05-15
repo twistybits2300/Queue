@@ -31,4 +31,12 @@ public struct QueueArray<T>: Queue {
     public var peek: T? {
         storage.first
     }
+    
+    /// Adds the given `element` as the last item in the queue.
+    /// - Parameter element: The element to be added.
+    /// - Returns: always `true`, indicating success.
+    public mutating func enqueue(_ element: T) -> Bool {
+        storage.append(element)
+        return true
+    }
 }

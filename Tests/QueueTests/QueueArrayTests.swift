@@ -56,6 +56,31 @@ final class QueueArrayTests: XCTestCase {
         XCTAssertFalse(sut.isEmpty)
         XCTAssertEqual(sut.peek, expectedValue)
     }
+
+    /// Validates that `enqueue(element:)` correctly enqueues the given value into an empty queue.
+    func test_enqueue_empty() throws {
+        let addedValue = 6
+        var expectedArray = [Int]()
+        expectedArray.append(addedValue)
+
+        var sut = fixture.makeEmptySUT()
+        XCTAssertTrue(sut.isEmpty)
+
+        XCTAssertTrue(sut.enqueue(addedValue))
+        XCTAssertEqual(sut.storage, expectedArray)
+    }
+
+    /// Validates that `enqueue(element:)` correctly enqueues the given value into a non-empty queue.
+    func test_enqueue() throws {
+        var expectedArray = fixture.numbers
+        expectedArray.append(fixture.addedValue)
+
+        var sut = fixture.makeNumbersSUT()
+        XCTAssertFalse(sut.isEmpty)
+
+        XCTAssertTrue(sut.enqueue(fixture.addedValue))
+        XCTAssertEqual(sut.storage, expectedArray)
+    }
 }
 
 private extension QueueFixture {
