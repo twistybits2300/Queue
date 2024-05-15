@@ -34,19 +34,14 @@ public class QueueLinkedList<T: Equatable>: Queue {
     
     /// Returns the number of items in this list.
     public var count: Int {
-        guard let head = list.head else {
+        guard list.head != nil else {
             return 0
         }
 
-        var current: DoublyLinkedNode<T>? = head
         var count = 0
-
-        while current != nil {
-            print("\(count): \(String(describing: current?.value))")
+        list.traverse { _ in
             count += 1
-            current = current?.next
         }
-
         return count
     }
     
