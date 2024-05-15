@@ -1,7 +1,8 @@
 import Foundation
 
 /// A value semantics implementation of a queue that uses an array for its storage.
-public struct QueueArray<T> {
+public struct QueueArray<T>: Queue {
+    public typealias Element = T
     internal var storage: [T]
 
     // MARK: - Initialization
@@ -24,5 +25,10 @@ public struct QueueArray<T> {
     /// Returns the number of items currently in the queue.
     public var count: Int {
         storage.count
+    }
+    
+    /// Returns the first item in the queue. May be `nil`.
+    public var peek: T? {
+        storage.first
     }
 }

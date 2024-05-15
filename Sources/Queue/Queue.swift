@@ -13,6 +13,7 @@ public protocol Queue {
     /// Returns the first element in the queue; may be `nil`.
     var peek: Element? { get }
 
+    /*
     /// Appends the provided `element` to the end of the queue.
     /// - Parameter element: The element to be appended.
     /// - Returns: `true` if the enqueue was successful; `false` otherwise.
@@ -21,4 +22,5 @@ public protocol Queue {
     /// Removes the first element from the queue.
     /// - Returns: The removed first element.
     mutating func dequeue() -> Element?
+    */
 }
