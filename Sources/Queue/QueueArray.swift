@@ -15,4 +15,9 @@ public struct QueueArray<T> {
     public init(array: [T]) {
         self.storage = array
     }
+    
+    /// Returns `true` if this queue is empty.
+    public var isEmpty: Bool {
+        storage.isEmpty
+    }
 }
