@@ -20,4 +20,9 @@ public struct QueueArray<T> {
     public var isEmpty: Bool {
         storage.isEmpty
     }
+    
+    /// Returns the number of items currently in the queue.
+    public var count: Int {
+        storage.count
+    }
 }

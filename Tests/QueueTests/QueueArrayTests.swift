@@ -29,6 +29,18 @@ final class QueueArrayTests: XCTestCase {
         let sut = fixture.makeNumbersSUT()
         XCTAssertFalse(sut.isEmpty)
     }
+
+    /// Validates that `count` returns zero when the queue is empty.
+    func test_count_empty() throws {
+        let sut = fixture.makeEmptySUT()
+        XCTAssertEqual(sut.count, 0)
+    }
+
+    /// Validates that `count` returns the expected value.
+    func test_count() throws {
+        let sut = fixture.makeNumbersSUT()
+        XCTAssertEqual(sut.count, fixture.numbers.count)
+    }
 }
 
 private extension QueueFixture {
