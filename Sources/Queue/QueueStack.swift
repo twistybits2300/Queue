@@ -2,9 +2,8 @@ import Foundation
 
 public struct QueueStack<T>: Queue {
     public typealias Element = T
-
     /// Upon dequeue, `rightStack` is reversed and placed into this stack.
-    /// The elements can them be retrieved in FIFO order.
+    /// The elements can then be retrieved in FIFO order.
     public private(set) var leftStack = [Element]()
 
     /// The stack into which new elements are pushed.
@@ -18,9 +17,15 @@ public struct QueueStack<T>: Queue {
         /* no-op */
     }
 
+    internal init(array: [T]) {
+        rightStack.append(contentsOf: array)
+        count += array.count
+    }
+
     // MARK: - API
+    /// Returns `true` if the queue is empty, `false` otherwise.
     public var isEmpty: Bool {
-        false
+        leftStack.isEmpty && rightStack.isEmpty
     }
 
     public var peek: T? {
