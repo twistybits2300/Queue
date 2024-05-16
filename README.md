@@ -1,22 +1,28 @@
 # Queue
 
-A couple of value semantics implementations of a stack: one that uses an array for its storage, the other utilizes two stacks as its storage mechanism.
+A few value semantics implementations of a queue.
 
 ### features
-- [x] `protocol Queue`
-- [x] `struct QueueArray: Queue`
-  - [x] `init()`
-  - [x] `init(array: [T])`
-  - [x] `var isEmpty: Bool`
-  - [x] `var count: Int`
-  - [x] `var peek: T?`
-  - [x] `func enqueue(_:T)`
-  - [x] `func dequeue() -> T?`
-- [x] `struct QueueStack: Queue`
-  - [x] `init()`
-  - [x] `var isEmpty: Bool`
-  - [x] `var count: Int`
-  - [x] `var peek: T?`
-  - [x] `func enqueue(_:T)`
-  - [x] `func dequeue() -> T?`
-  
+- `protocol Queue`
+- `struct QueueArray: Queue`
+  - `init()`
+  - `init(array: [T])`
+  - `var isEmpty: Bool`
+  - `var count: Int`
+  - `var peek: T?`
+  - `func enqueue(_:T)`
+  - `func dequeue() -> T?`
+- `struct QueueStack: Queue`
+  - `init()`
+  - `var isEmpty: Bool`
+  - `var count: Int`
+  - `var peek: T?`
+  - `func enqueue(_:T)`
+  - `func dequeue() -> T?`
+- `struct QueueLinkedList: Queue`
+  - `init()`
+  - `var isEmpty: Bool`
+  - `var count: Int`
+  - `var peek: T?`
+  - `func enqueue(_:T)`
+  - `func dequeue() -> T?`
